@@ -31,6 +31,11 @@ android {
     lintOptions {
         disable 'CheckResult' //不去监测返回值是否使用
     }
+
+    compileOptions {
+        sourceCompatibility = '1.8'
+        targetCompatibility = '1.8'
+    }
 }
 
 dependencies {

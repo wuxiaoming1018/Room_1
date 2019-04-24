@@ -2,10 +2,8 @@ package com.tuacy.room.database.daos;
 
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;
-import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
 
-import com.tuacy.room.database.entities.Book;
 import com.tuacy.room.database.entities.MiniProgram;
 
 import java.util.List;
@@ -13,11 +11,12 @@ import java.util.List;
 import io.reactivex.Flowable;
 
 @Dao
-public interface BookDao {
+public interface MiniDao {
 
-	@Insert(onConflict = OnConflictStrategy.REPLACE)
-	List<Long> insert(Book... books);
+    @Insert
+    List<Long> insert(MiniProgram... miniPrograms);
 
-	@Query("SELECT * from book")
-	Flowable<List<Book>> load();
+    @Query("select * from miniprogram")
+    Flowable<List<MiniProgram>> query();
+
 }

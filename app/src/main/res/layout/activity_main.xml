@@ -35,4 +35,18 @@
         android:text="查询Book记录"
         android:textAllCaps="false" />
 
+    <Button
+        android:id="@+id/button_add_mini"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="添加Mini记录"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/button_get_mini"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="查询Mini记录"
+        android:textAllCaps="false" />
+
 </LinearLayout>
