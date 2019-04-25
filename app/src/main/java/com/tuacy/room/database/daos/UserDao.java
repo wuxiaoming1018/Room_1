@@ -14,11 +14,14 @@ import io.reactivex.Flowable;
 @Dao
 public interface UserDao {
 
-	@Insert(onConflict = OnConflictStrategy.REPLACE)
-	List<Long> insert(User... users);
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    List<Long> insert(User... users);
 
-	@Query("SELECT * from user")
-	Flowable<List<User>> loadUser();
+    @Insert
+    List<Long> insertAll(List<User> users);
+
+    @Query("SELECT * from user")
+    Flowable<List<User>> loadUser();
 
 
 }

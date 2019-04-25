@@ -5,49 +5,64 @@ import android.arch.persistence.room.PrimaryKey;
 
 import java.util.Date;
 
-@Entity
+@Entity(tableName = "book")
 public class Book {
 
-	@PrimaryKey(autoGenerate = true)
-	private Long   uid;
-	private String name;
-	private Date   time;
-	private Long   userId;
+    @PrimaryKey(autoGenerate = true)
+    private Long uid;
+    private String name;
+    private Date time;
+    private Long userId;
+//    private int age;
 
-	public Long getUid() {
-		return uid;
-	}
+//    public int getAge() {
+//        return age;
+//    }
+//
+//    public void setAge(int age) {
+//        this.age = age;
+//    }
 
-	public void setUid(Long uid) {
-		this.uid = uid;
-	}
+    public Long getUid() {
+        return uid;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public void setUid(Long uid) {
+        this.uid = uid;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public Date getTime() {
-		return time;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public void setTime(Date time) {
-		this.time = time;
-	}
+    public Date getTime() {
+        return time;
+    }
 
-	public Long getUserId() {
-		return userId;
-	}
+    public void setTime(Date time) {
+        this.time = time;
+    }
 
-	public void setUserId(Long userId) {
-		this.userId = userId;
-	}
+    public Long getUserId() {
+        return userId;
+    }
 
-	@Override
-	public String toString() {
-		return "Book{" + "uid=" + uid + ", name='" + name + '\'' + ", time=" + time + ", userId=" + userId + '}';
-	}
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "uid=" + uid +
+                ", name='" + name + '\'' +
+                ", time=" + time +
+                ", userId=" + userId +
+//                ", age=" + age +
+                '}';
+    }
 }

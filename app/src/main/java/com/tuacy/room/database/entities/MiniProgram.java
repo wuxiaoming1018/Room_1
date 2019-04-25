@@ -5,9 +5,9 @@ import android.arch.persistence.room.PrimaryKey;
 
 import java.util.Date;
 
-@Entity
+@Entity(tableName = "mini_program")
 public class MiniProgram {
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     Integer id;
     String name;
     String icon;
