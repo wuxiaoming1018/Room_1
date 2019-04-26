@@ -17,7 +17,7 @@ public class AppApplication extends Application {
         super.onCreate();
         mAppDatabase = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "room.db")
                 .allowMainThreadQueries()
-                .addMigrations(MIGRATION_1_2)
+                .addMigrations(MIGRATION_1_2,MIGRATION_2_3)
                 .build();
     }
 
@@ -46,15 +46,15 @@ public class AppApplication extends Application {
         }
     };
 
-//    static final Migration MIGRATION_3_4 = new Migration(3, 4) {
-//        @Override
-//        public void migrate(SupportSQLiteDatabase database) {
-//            database.execSQL(
-//                    "CREATE TABLE IF NOT EXISTS `mini` (`id` INTEGER PRIMARY KEY autoincrement, `name` TEXT , `icon` TEXT, 'desc' TEXT," +
-//                            " 'url' TEXT,'time' DATE)"
-//            );
-//        }
-//    };
+    static final Migration MIGRATION_2_3 = new Migration(2, 3) {
+        @Override
+        public void migrate(SupportSQLiteDatabase database) {
+            database.execSQL(
+                    "CREATE TABLE IF NOT EXISTS `mini_program` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `name` TEXT , `icon` TEXT, 'desc' TEXT," +
+                            " 'url' TEXT,'time_now' INTEGER)"
+            );
+        }
+    };
 
 //    static final Migration MIGRATION_4_5 = new Migration(4, 5) {
 //        @Override

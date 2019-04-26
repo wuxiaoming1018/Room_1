@@ -1,5 +1,6 @@
 package com.tuacy.room.database.entities;
 
+import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 
@@ -13,7 +14,8 @@ public class MiniProgram {
     String icon;
     String desc;
     String url;
-    Date time;
+    @ColumnInfo(name = "time_now")
+    String time;
 
     public Integer getId() {
         return id;
@@ -55,11 +57,11 @@ public class MiniProgram {
         this.url = url;
     }
 
-    public Date getTime() {
+    public String getTime() {
         return time;
     }
 
-    public void setTime(Date time) {
+    public void setTime(String time) {
         this.time = time;
     }
 

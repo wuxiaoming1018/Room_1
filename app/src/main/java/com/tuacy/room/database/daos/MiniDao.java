@@ -14,15 +14,15 @@ import io.reactivex.Flowable;
 @Dao
 public interface MiniDao {
 
-//    @Insert
-//    List<Long> insert(MiniProgram... miniPrograms);
-//
-//    @Query("select * from mini_program")
-//    Flowable<List<MiniProgram>> query();
-//
-//    @Query("delete from mini_program where url =:url")
-//    int deleteByUrl(String url);
-//
-//    @Delete
-//    int deleteAll(MiniProgram miniProgram);
+    @Insert
+    List<Long> insert(MiniProgram... miniPrograms);
+
+    @Query("select * from mini_program")
+    Flowable<List<MiniProgram>> query();
+
+    @Query("delete from mini_program where url =:url")
+    int deleteByUrl(String url);
+
+    @Delete
+    int deleteAll(MiniProgram miniProgram);
 }

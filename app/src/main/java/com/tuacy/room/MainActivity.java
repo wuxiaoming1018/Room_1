@@ -11,9 +11,11 @@ import com.tuacy.room.database.entities.MiniProgram;
 import com.tuacy.room.database.entities.Student;
 import com.tuacy.room.database.entities.User;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.SimpleFormatter;
 
 import io.reactivex.Scheduler;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -22,6 +24,7 @@ import io.reactivex.schedulers.Schedulers;
 
 public class MainActivity extends BaseActivity {
 
+    private SimpleDateFormat mSimpleDateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -135,31 +138,31 @@ public class MainActivity extends BaseActivity {
             miniProgram1.setDesc("详细描述1");
 //            miniProgram1.setId(10);
             miniProgram1.setName("吴小明");
-            miniProgram1.setTime(new Date());
+            miniProgram1.setTime(mSimpleDateFormat.format(new Date()));
             miniProgram1.setUrl("http://google.com-1");
             MiniProgram miniProgram2 = new MiniProgram();
             miniProgram2.setIcon("www.baidu.com-2");
             miniProgram2.setDesc("详细描述2");
 //            miniProgram2.setId(102);
             miniProgram2.setName("吴小明2");
-            miniProgram2.setTime(new Date());
+            miniProgram2.setTime(mSimpleDateFormat.format(new Date()));
             miniProgram2.setUrl("http://google.com-2");
 
-//            mAppDatabase.miniDao().insert(miniProgram1, miniProgram2);
+            mAppDatabase.miniDao().insert(miniProgram1, miniProgram2);
         });
 
         findViewById(R.id.button_get_mini).setOnClickListener(v -> {
-//            mAppDatabase.miniDao()
-//                    .query()
-//                    .subscribeOn(Schedulers.io())
-//                    .observeOn(AndroidSchedulers.mainThread())
-//                    .subscribe(miniPrograms -> {
-//                        if (miniPrograms != null) {
-//                            for (MiniProgram miniProgram : miniPrograms) {
-//                                Log.d("query", miniProgram.toString());
-//                            }
-//                        }
-//                    });
+            mAppDatabase.miniDao()
+                    .query()
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(miniPrograms -> {
+                        if (miniPrograms != null) {
+                            for (MiniProgram miniProgram : miniPrograms) {
+                                Log.d("query_mini", miniProgram.toString());
+                            }
+                        }
+                    });
         });
 
         findViewById(R.id.button_delete_mini).setOnClickListener(v -> {

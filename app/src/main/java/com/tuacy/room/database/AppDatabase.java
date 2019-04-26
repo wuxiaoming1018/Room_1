@@ -13,7 +13,7 @@ import com.tuacy.room.database.entities.MiniProgram;
 import com.tuacy.room.database.entities.Student;
 import com.tuacy.room.database.entities.User;
 
-@Database(entities = {User.class, Book.class/*, MiniProgram.class, Student.class*/}, version = 2)
+@Database(entities = {User.class, Book.class, MiniProgram.class/*, Student.class*/}, version = 3)
 @TypeConverters({Converters.class})
 public abstract class AppDatabase extends RoomDatabase {
 
